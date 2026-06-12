@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BG Remover AI</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="container">
+
+        <img id="preview" style="display:none;max-width:300px;margin-bottom:15px;">
+
+        <h1>إزالة الخلفية</h1>
+
+   <input type="file" id="imageInput">
+
+   
+
+
+
+        <button id="removeBtn">
+            إزالة الخلفية
+        </button>
+
+        <a href="privacy.html" class="privacy-btn">
+         سياسة الخصوصية
+        </a>
+
+       
+        <a href="about.html" class="privacy-btn">
+         من نحن
+        </a>
+
+        <img id="preview" style="display:none;">
+
+      <div id="result"></div>
+
+<a id="downloadBtn"
+   style="display:none;"
+   download="background-removed.png">
+   تحميل الصورة
+</a>
+
+<script src="script.js"></script>
+
+</body>
+</html>

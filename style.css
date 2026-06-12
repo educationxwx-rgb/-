@@ -1,0 +1,178 @@
+ *{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Tahoma, Arial, sans-serif;
+    background:linear-gradient(135deg,#0f172a,#1e293b);
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    direction:rtl;
+}
+
+.container{
+    background:white;
+    width:90%;
+    max-width:500px;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.2);
+    text-align:center;
+}
+
+h1{
+    margin-bottom:20px;
+    color:#0f172a;
+}
+
+input[type="file"]{
+    width:100%;
+    padding:12px;
+    border:2px dashed #cbd5e1;
+    border-radius:10px;
+    margin-bottom:15px;
+    cursor:pointer;
+}
+
+button{
+    width:100%;
+    padding:14px;
+    border:none;
+    border-radius:10px;
+    background:#2563eb;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+    transition:.3s;
+}
+
+button:hover{
+    background:#1d4ed8;
+}
+
+#result{
+    margin-top:20px;
+}
+
+#result img{
+    width:100%;
+    max-width:350px;
+    border-radius:10px;
+    margin-top:15px;
+}
+
+#downloadBtn{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 25px;
+    background:#16a34a;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    font-size:16px;
+}
+
+#downloadBtn:hover{
+    background:#15803d;
+}
+
+#preview{
+    max-width:300px;
+    margin:20px auto;
+    display:block;
+    border-radius:15px;
+}
+
+
+.loader{
+    width:50px;
+    height:50px;
+    border:5px solid #ddd;
+    border-top:5px solid #007bff;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+    margin:20px auto;
+}
+
+@keyframes spin{
+    100%{
+        transform:rotate(360deg);
+    }
+}
+
+#fileName{
+    margin:10px 0;
+    color:#666;
+    font-size:14px;
+}
+
+#downloadBtn{
+    display:none;
+    background:#28a745;
+    color:white;
+    text-decoration:none;
+    padding:12px 25px;
+    border-radius:8px;
+    margin-top:20px;
+    display:inline-block;
+}
+
+#downloadBtn:hover{
+    opacity:.9;
+}
+
+
+
+/* صفحة سياسة الخصوصية */
+
+.privacy-page{
+    background:#f5f5f5;
+    display:block;
+    padding:20px;
+}
+
+.privacy-container{
+    max-width:800px;
+    margin:auto;
+    background:white;
+    padding:30px;
+    border-radius:20px;
+    box-shadow:0 10px 30px rgba(0,0,0,.1);
+}
+
+.privacy-container h1{
+    text-align:center;
+    color:#2563eb;
+    margin-bottom:20px;
+}
+
+.privacy-container h2{
+    color:#0f172a;
+    margin-top:25px;
+    margin-bottom:10px;
+}
+
+.privacy-container p{
+    color:#444;
+    line-height:1.8;
+    margin-bottom:15px;
+}
+
+.privacy-btn{
+    display:inline-block;
+    margin-top:15px;
+    padding:12px 25px;
+    background:#64748b;
+    color:white;
+    text-decoration:none;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.privacy-btn:hover{
+    background:#475569;
+}
