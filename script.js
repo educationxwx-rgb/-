@@ -1,20 +1,22 @@
-const btn = document.getElementById("removeBtn");
+ const btn = document.getElementById("removeBtn");
 const imageInput = document.getElementById("imageInput");
 const result = document.getElementById("result");
-
- 
-
 const preview = document.getElementById("preview");
+const downloadBtn = document.getElementById("downloadBtn");
 
+let imageUrl = null;
+
+// عرض الصورة قبل المعالجة
 imageInput.addEventListener("change", () => {
     const file = imageInput.files[0];
 
-    if(file){
+    if (file) {
         preview.src = URL.createObjectURL(file);
         preview.style.display = "block";
     }
 });
 
+// زر إزالة الخلفية
 btn.addEventListener("click", async () => {
 
     const file = imageInput.files[0];
@@ -24,10 +26,10 @@ btn.addEventListener("click", async () => {
         return;
     }
 
-   result.innerHTML = `
-<div class="loader"></div>
-<p>جاري إزالة الخلفية...</p>
-`;
+    result.innerHTML = `
+        <div class="loader"></div>
+        <p>جاري إزالة الخلفية...</p>
+    `;
 
     const formData = new FormData();
     formData.append("image_file", file);
@@ -47,46 +49,46 @@ btn.addEventListener("click", async () => {
         );
 
         if (!response.ok) {
+            const err = await response.text();
+            console.log(err);
             throw new Error("API Error");
         }
 
-        const blob = await response.blob();
-        const imageUrl = URL.createObjectURL(blob);
+         const blob = await response.blob();
 
-        result.innerHTML = `
-            <h3>تمت إزالة الخلفية</h3>
-            <img src="${imageUrl}" width="300">
-        `;
+// إنشاء رابط تحميل مباشر
+const url = window.URL.createObjectURL(blob);
 
-        const downloadBtn = document.getElementById("downloadBtn");
-        downloadBtn.href = imageUrl;
-        downloadBtn.style.display = "inline-block";
+result.innerHTML = `
+    <h3>تمت إزالة الخلفية</h3>
+    <img src="${url}" width="300">
+    <p>اضغط على زر التحميل</p>
+`;
 
-      setTimeout(() => {
-    window.scrollTo({
-        top: document.body.scrollHeight,
-        behavior: "smooth"
-    });
-}, 300);
+const downloadBtn = document.getElementById("downloadBtn");
 
-       
+downloadBtn.style.display = "inline-block";
+downloadBtn.textContent = "تحميل الصورة";
+
+// تحميل حقيقي عند الضغط
+downloadBtn.onclick = () => {
+    const a = document.createElement("a");
+    a.href = url;
+    a.download = "background-removed.png";
+    document.body.appendChild(a);
+    a.click();
+    document.body.removeChild(a);
+};
+
+        setTimeout(() => {
+            window.scrollTo({
+                top: document.body.scrollHeight,
+                behavior: "smooth"
+            });
+        }, 300);
 
     } catch (error) {
-
-        result.innerHTML = "حدث خطأ أثناء معالجة الصورة";
         console.error(error);
-
-    }
-
-});
-
-
-imageInput.addEventListener("change", () => {
-    const file = imageInput.files[0];
-
-    if(file){
-        const preview = document.getElementById("preview");
-        preview.src = URL.createObjectURL(file);
-        preview.style.display = "block";
+        result.innerHTML = "حدث خطأ أثناء معالجة الصورة";
     }
 });
