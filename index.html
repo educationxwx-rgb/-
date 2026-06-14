@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="ar">
 <head>
     <meta charset="UTF-8">
@@ -9,40 +9,29 @@
 </head>
 <body>
 
-    <div class="container">
+<div class="container">
 
-        <img id="preview" style="display:none;max-width:300px;margin-bottom:15px;">
+    <h1>إزالة الخلفية</h1>
 
-        <h1>إزالة الخلفية</h1>
+    <img id="preview" style="display:none;max-width:300px;margin-bottom:15px;">
 
-   <input type="file" id="imageInput">
+    <input type="file" id="imageInput" accept="image/*">
 
-   
+    <button id="removeBtn">إزالة الخلفية</button>
 
+    <div id="result"></div>
 
+    <!-- زر عرض الصورة بدل تحميل مباشر (لمنع خروج التطبيق) -->
+    <a id="downloadBtn"
+       style="display:none;display:block;margin-top:15px;font-size:18px;"
+       target="_blank">
+       عرض الصورة
+    </a>
 
-        <button id="removeBtn">
-            إزالة الخلفية
-        </button>
+    <a href="privacy.html" class="privacy-btn">سياسة الخصوصية</a>
+    <a href="about.html" class="privacy-btn">من نحن</a>
 
-        <a href="privacy.html" class="privacy-btn">
-         سياسة الخصوصية
-        </a>
-
-       
-        <a href="about.html" class="privacy-btn">
-         من نحن
-        </a>
-
-        <img id="preview" style="display:none;">
-
-      <div id="result"></div>
-
-<a id="downloadBtn"
-   style="display:none;"
-   download="background-removed.png">
-   تحميل الصورة
-</a>
+</div>
 
 <script src="script.js"></script>
 
