@@ -42,7 +42,7 @@ btn.addEventListener("click", async () => {
             {
                 method: "POST",
                 headers: {
-                    "X-Api-Key": "dUzgZFgpcD7VwoXrFzg8DHZy"
+                    "X-Api-Key": "aqLuRfCq3625x3r76FrLSLA3"
                 },
                 body: formData
             }
